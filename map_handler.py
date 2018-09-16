@@ -11,17 +11,21 @@ def find_max_zoom_level(delta_latitude, delta_longitude):
     max_zoom_level_by_longitude = 4
     max_zoom_level_by_latitude = 4
 
-    for i in range (1, 15):
+    for i in range (1, 17):
         MAX_LATITUDE_DIFFERENCE /= 2
         if delta_latitude > MAX_LATITUDE_DIFFERENCE:
             max_zoom_level_by_latitude += i
             break
+    else:
+        max_zoom_level_by_latitude = 20
 
-    for i in range (1, 15):
+    for i in range (1, 17):
         MAX_LONGITUDE_DIFFERENCE /= 2
         if delta_longitude > MAX_LONGITUDE_DIFFERENCE:
             max_zoom_level_by_longitude += i
             break
+    else:
+        max_zoom_level_by_longitude = 20
 
     return min(max_zoom_level_by_latitude, max_zoom_level_by_longitude)
 
